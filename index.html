@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhysEngine - Custom Physics Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Editor -->
+        <aside class="sidebar">
+            <header class="header">
+                <h1>PhysEngine</h1>
+                <div class="controls">
+                    <button id="run-btn" class="btn primary">Run</button>
+                    <button id="reset-btn" class="btn secondary">Reset</button>
+                    <select id="example-select" class="btn secondary">
+                        <option value="">Load Example...</option>
+                        <option value="stack">Stack</option>
+                        <option value="rain">Rain</option>
+                        <option value="test">Test</option>
+                    </select>
+                </div>
+            </header>
+
+            <div class="editor-container">
+                <textarea id="code-editor" spellcheck="false">// Welcome to SimScript!
+// Select an example above or write your own.
+
+// Welcome to SimScript!
+// Select an example above or write your own.
+
+gravity(0, 500)
+rect(100, 400, 800, 20) // Floor
+circle(200, 10, 20)
+print(123)
+
+
+
+</textarea>
+                <div class="line-numbers"></div>
+            </div>
+
+            <div class="documentation">
+                <h3>Console</h3>
+                <div id="console-output" class="console-content"></div>
+            </div>
+
+            <div class="documentation">
+                <h3>Docs</h3>
+                <div class="doc-content">
+                    <p><code>circle(x, y, r)</code> - Create a circle</p>
+                    <p><code>rect(x, y, w, h)</code> - Create a rectangle</p>
+                    <p><code>gravity(x, y)</code> - Set gravity (default 0, 0.5)</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Canvas Area -->
+        <main class="sim-area">
+            <canvas id="sim-canvas"></canvas>
+            <div class="sim-overlay">
+                <span id="fps-counter">FPS: 60</span>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
