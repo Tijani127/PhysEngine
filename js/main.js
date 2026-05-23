@@ -9,7 +9,7 @@ class App {
     constructor() {
         this.editor = new Editor();
         this.canvas = document.getElementById('sim-canvas');
-        this.ctx = this.canvas.getContext('2d');14
+        this.ctx = this.canvas.getContext('2d');
         this.fpsCounter = document.getElementById('fps-counter');
         this.consoleOutput = document.getElementById('console-output');
 

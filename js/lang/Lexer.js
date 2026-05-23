@@ -47,6 +47,10 @@ export class Lexer {
                 while (this.position < this.input.length && this.input[this.position] !== '\n') {
                     this.position++;
                 }
+            if (char === '"' || char === "'") {
+                this.tokens.push(this.readString(char));
+                continue;
+}
                 continue;
             }
 
@@ -77,4 +81,18 @@ export class Lexer {
         const val = this.input.slice(start, this.position);
         return { type: 'NUMBER', value: parseFloat(val) };
     }
+    readString(quoteChar) {
+        this.position++; // Skip the opening quote
+        let start = this.position;
+        
+        while (this.position < this.input.length && this.input[this.position] !== quoteChar) {
+            this.position++;
+        }
+    
+        const val = this.input.slice(start, this.position);
+        
+        this.position++; // Skip the closing quote
+        return { type: 'STRING', value: val };
+}
+
 }

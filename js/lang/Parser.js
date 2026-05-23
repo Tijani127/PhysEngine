@@ -42,11 +42,25 @@ export class Parser {
 
     parseExpression() {
         const token = this.peek();
+        
+        // 1. Handle Numbers
         if (token.type === 'NUMBER') {
             return { type: 'Literal', value: this.consume('NUMBER').value };
         }
+
+        // 2. Handle Quoted Strings ("hello")
+        if (token.type === 'STRING') {
+            return { type: 'Literal', value: this.consume('STRING').value };
+        }
+
+        // 3. Handle Raw Letters / Unquoted Text (hello)
+        if (token.type === 'IDENTIFIER') {
+            return { type: 'Identifier', value: this.consume('IDENTIFIER').value };
+        }
+
         throw new Error(`Unexpected expression token: ${token.type}`);
     }
+
 
     consume(type) {
         const token = this.tokens[this.position];

@@ -39,7 +39,7 @@ First, DO NOT TRY TO CREATE VARIABLES. You will get errors in the console saying
 
 1. rect(x, y, w, h)
 2. cicle(x, y, r)
-3. print(num) // num can be 1234567890
+3. print(num or string) // num can be 1234567890, string can be abcdefghijklmnopqrstuvwxyz
 4. gravity(x, y) // default is 0, 500
 
 ## Contributing
